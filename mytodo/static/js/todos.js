@@ -16,6 +16,7 @@ $(function(){
     defaults: function() {
       return {
         title: "empty todo...",
+        content:"",
         order: Todos.nextOrder(),
         done: false
       };
@@ -211,7 +212,7 @@ $(function(){
       if (e.keyCode != 13) return;
       if (!this.input.val()) return;
 
-      Todos.create({title: this.input.val()});
+      Todos.create({title: this.$("#new-todo").val(),content:this.$("#new-todo-content").val()});
       this.input.val('');
     },
 
