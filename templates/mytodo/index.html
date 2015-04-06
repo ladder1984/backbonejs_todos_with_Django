@@ -60,11 +60,14 @@
 <script type="text/template" id="item-template">
     <div class="view">
         <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+{#        <div class="title"><%- title %></div>#}
         <label><%- title %></label>
-        <p><%- content %></p>
+        <div class="content"><%- content %></div>
         <a class="destroy"></a>
     </div>
-    <input class="edit" type="text" value="<%- title %>"/>
+{#    <input class="edit" type="text" name="title" value="<%- title %>"/>#}
+    <input class="edit" type="text" name="content"  vanlue="<%- content %>"/>
+
 </script>
 
 <script type="text/template" id="stats-template">

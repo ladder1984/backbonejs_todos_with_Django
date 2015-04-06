@@ -100,7 +100,7 @@ $(function(){
     render: function() {
       this.$el.html(this.template(this.model.toJSON()));
       this.$el.toggleClass('done', this.model.get('done'));
-      this.input = this.$('.edit');
+      //this.input = this.$('.edit');
       return this;
     },
 
@@ -113,15 +113,18 @@ $(function(){
     edit: function() {
       this.$el.addClass("editing");
       this.input.focus();
+      //this.$("input[type='text']").focus();
     },
 
     // Close the `"editing"` mode, saving changes to the todo.
     close: function() {
       var value = this.input.val();
-      if (!value) {
-        this.clear();
+      var content = this.$("input[name='content']").val()
+      if (!content) {
+        //this.clear();
       } else {
-        this.model.save({title: value});
+        //this.model.save({title: value});
+          this.model.save({content:content});
         this.$el.removeClass("editing");
       }
     },
@@ -153,7 +156,7 @@ $(function(){
 
     // Delegated events for creating new items, and clearing completed ones.
     events: {
-      "keypress #new-todo":  "createOnEnter",
+      //"keypress #new-todo":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
       "click #toggle-all": "toggleAllComplete",
        "click #submit":"createOnSubmit"
