@@ -57,7 +57,8 @@ def get_all(request):
     todo_dict = []
     flag_dict = {'Y': True, 'N': False}
     for todo in todos:
-        todo_dict.append({'id': todo.id, 'title': todo.title, 'done': flag_dict[todo.done], 'order': todo.order})
+        todo_dict.append({'id': todo.id, 'title': todo.title, 'content': todo.content, 'done': flag_dict[todo.done],
+                          'order': todo.order})
     return HttpResponse(json.dumps(todo_dict), content_type='application/json')
 
 
@@ -96,11 +97,13 @@ protect
 def update(request, todo_id):
     req = json.loads(request.body)
     title = req['title']
+    content = req['content']
     done = req['done']
     order = req['order']
     flag_dict = {True: 'Y', False: 'N'}
     todo = Todo.objects.get(id=todo_id)
     todo.title = title
+    todo.content = content
     todo.done = flag_dict[done]
     todo.order = order
     todo.save()

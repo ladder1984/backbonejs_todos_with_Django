@@ -155,7 +155,8 @@ $(function(){
     events: {
       "keypress #new-todo":  "createOnEnter",
       "click #clear-completed": "clearCompleted",
-      "click #toggle-all": "toggleAllComplete"
+      "click #toggle-all": "toggleAllComplete",
+       "click #submit":"createOnSubmit"
     },
 
     // At initialization we bind to the relevant events on the `Todos`
@@ -211,6 +212,13 @@ $(function(){
     createOnEnter: function(e) {
       if (e.keyCode != 13) return;
       if (!this.input.val()) return;
+
+      Todos.create({title:this.$("#new-todo").val() ,content:this.$("#new-todo-content").val()});
+      this.$("input[type='text']").val('');
+    },
+
+
+    createOnSubmit: function(e) {
 
       Todos.create({title:this.$("#new-todo").val() ,content:this.$("#new-todo-content").val()});
       this.$("input[type='text']").val('');
