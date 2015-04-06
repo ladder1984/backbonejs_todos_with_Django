@@ -72,15 +72,16 @@ protect
 def create(request):
     req = json.loads(request.body)
     title = req['title']
+    content = req['content']
     order = req['order']
 
     if not title:
         return HttpResponse(json.dumps({'success': False}), content_type='application/json')
     todo = Todo()
     todo.title = title
+    todo.content = content
     todo.order = order
     todo.save()
-    print(todo.title)
     return HttpResponse(json.dumps({'success': True}), content_type='application/json')
 
 

@@ -6,7 +6,7 @@ from mytodo.models import *
 
 
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ('title', 'order', 'done')
+    list_display = ('title', 'content','order', 'done')
 
 
 admin.site.register(Todo, TodoAdmin)

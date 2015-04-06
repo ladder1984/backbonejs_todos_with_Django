@@ -212,8 +212,8 @@ $(function(){
       if (e.keyCode != 13) return;
       if (!this.input.val()) return;
 
-      Todos.create({title: this.$("#new-todo").val(),content:this.$("#new-todo-content").val()});
-      this.input.val('');
+      Todos.create({title:this.$("#new-todo").val() ,content:this.$("#new-todo-content").val()});
+      this.$("input[type='text']").val('');
     },
 
     // Clear all done todo items, destroying their models.
