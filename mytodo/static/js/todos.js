@@ -142,7 +142,7 @@ $(function () {
         },
 
         clickButton:function(){
-            alert("you clicked the button");
+            //alert("you clicked the button");
             this.close()
         },
 
