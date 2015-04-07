@@ -123,6 +123,15 @@ body {
 	display: none;
 }
 
+#todo-list li .view-editing {
+	display: none;
+}
+
+#todo-list li.editing .view-editing {
+    display:block;
+}
+
+
 #todo-list li .view label {
 	word-break: break-word;
 }

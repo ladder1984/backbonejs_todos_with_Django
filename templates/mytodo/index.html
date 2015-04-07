@@ -60,13 +60,18 @@
 <script type="text/template" id="item-template">
     <div class="view">
         <input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
-{#        <div class="title"><%- title %></div>#}
+        {#        <div class="title"><%- title %></div>#}
         <label><%- title %></label>
+
         <div class="content"><%- content %></div>
         <a class="destroy"></a>
     </div>
-{#    <input class="edit" type="text" name="title" value="<%- title %>"/>#}
-    <input class="edit" type="text" name="content"  vanlue="<%- content %>"/>
+    <div class="view-editing">
+        <input class="edit" type="text" name="title" value="<%- title %>"/>
+        <input class="edit" type="text" name="content" value="<%- content %>"/>
+{#        **flag**#}
+        <input  type="button" value="Submit"/>
+    </div>
 
 </script>
 
